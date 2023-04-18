@@ -13,4 +13,10 @@
   (it "should score a game of gutter balls as 0"
     (should= 0 (score-game (roll-many 20 0))))
   (it "should score a game of 1's as 20"
-    (should= 20 (score-game (roll-many 20 1)))))
+    (should= 20 (score-game (roll-many 20 1))))
+  #_(it "should give the bonus for scoring a spare"
+    (should= 16 (score-game (-> ()
+                                (roll 5)
+                                (roll 5)
+                                (roll 3)
+                                (concat (roll-many 17 0)))))))
