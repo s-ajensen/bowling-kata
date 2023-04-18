@@ -1,6 +1,7 @@
 (ns bowling-kata.core)
 
-(defn roll [])
+(defn roll [rolls pins]
+  (conj rolls pins))
 
 (defn score-game [rolls]
-  (do 0))
+  (reduce + rolls))
