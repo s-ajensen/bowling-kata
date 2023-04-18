@@ -29,4 +29,6 @@
                                 (roll 10)
                                 (roll 3)
                                 (roll 4)
-                                (concat (roll-many 16, 0)))))))
+                                (concat (roll-many 16, 0))))))
+  (it "should score perfect game as 300"
+    (should= 300 (score-game (roll-many 12 10)))))
