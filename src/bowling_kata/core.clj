@@ -4,7 +4,9 @@
   (conj rolls pins))
 
 (defn score-frame [rolls n]
-  (+ (nth rolls n) (nth rolls (+ n 1))))
+  (if (= 10 (+ (nth rolls n) (nth rolls (+ n 1))))
+    (+ 10 (nth rolls (+ 2 n)))
+    (+ (nth rolls n) (nth rolls (+ n 1)))))
 
 (defn score-game [rolls]
   (loop [n      0
