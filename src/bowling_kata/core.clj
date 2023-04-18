@@ -3,9 +3,15 @@
 (defn roll [rolls pins]
   (conj rolls pins))
 
+(defn is-spare [rolls n]
+  (= 10 (+ (nth rolls n) (nth rolls (+ n 1)))))
+
+(defn score-spare [rolls n]
+  (+ 10 (nth rolls (+ 2 n))))
+
 (defn score-frame [rolls n]
-  (if (= 10 (+ (nth rolls n) (nth rolls (+ n 1))))
-    (+ 10 (nth rolls (+ 2 n)))
+  (if (is-spare rolls n)
+    (score-spare rolls n)
     (+ (nth rolls n) (nth rolls (+ n 1)))))
 
 (defn score-game [rolls]
