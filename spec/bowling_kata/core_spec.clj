@@ -2,6 +2,10 @@
   (:require [speclj.core :refer :all]
             [bowling-kata.core :refer :all]))
 
-(describe "a test"
-  (it "FIXME, I fail."
-    (should= 0 1)))
+(describe "Bowling scoring tests"
+  (it "should score a game of gutter balls as 0"
+    (should= 0 (score-game (loop [n     0
+                                  rolls ()]
+                             (if (>= n 20)
+                               rolls
+                               (recur (inc n) (roll))))))))

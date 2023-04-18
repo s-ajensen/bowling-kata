@@ -1,5 +1,6 @@
 (ns bowling-kata.core)
 
-(defn -main
-  [& args]
-  (println "Hello World"))
+(defn roll [])
+
+(defn score-game [rolls]
+  (do 0))
