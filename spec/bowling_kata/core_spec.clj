@@ -29,4 +29,11 @@
                                 (concat (roll-many 17 0))))))
 
   (it "should score game of spares as 150"
-    (should= 150 (score-game (roll-many 21 5)))))
+    (should= 150 (score-game (roll-many 21 5))))
+
+  (it "should score bonus for strike"
+    (should= 20 (score-game (-> new-game
+                                (roll 10)
+                                (roll 3)
+                                (roll 2)
+                                (concat (roll-many 17 0)))))))
