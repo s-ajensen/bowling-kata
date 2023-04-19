@@ -21,9 +21,9 @@
   (it "should score game of 1's as 20"
     (should= 20 (score-game (roll-many 20 1))))
 
-  #_(it "should score bonus for spare"
-      (should= 16 (score-game (-> new-game
-                                  (roll 5)
-                                  (roll 5)
-                                  (roll 3)
-                                  (concat (roll-many 17 0)))))))
+  (it "should score bonus for spare"
+    (should= 16 (score-game (-> new-game
+                                (roll 5)
+                                (roll 5)
+                                (roll 3)
+                                (concat (roll-many 17 0)))))))

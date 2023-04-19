@@ -7,7 +7,9 @@
   (next (next rolls)))
 
 (defn score-frame [rolls]
-  (+ (first rolls) (nth rolls 1)))
+  (if (= 10 (+ (first rolls) (nth rolls 1)))
+    (+ 10 (nth rolls 2))
+    (+ (first rolls) (nth rolls 1))))
 
 (defn score-game [rolls]
   (loop [rolls rolls
