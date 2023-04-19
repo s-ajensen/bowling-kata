@@ -1,5 +1,4 @@
 (ns bowling-kata.core)
 
-(defn -main
-  [& args]
-  (println "Hello World"))
+(defn roll [rolls pins]
+  (conj rolls pins))
