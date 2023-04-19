@@ -26,4 +26,7 @@
                                 (roll 5)
                                 (roll 5)
                                 (roll 3)
-                                (concat (roll-many 17 0)))))))
+                                (concat (roll-many 17 0))))))
+
+  (it "should score game of spares as 150"
+    (should= 150 (score-game (roll-many 21 5)))))
