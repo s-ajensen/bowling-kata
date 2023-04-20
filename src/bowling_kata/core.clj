@@ -18,10 +18,10 @@
   (+ 10 (nth rolls 2)))
 
 (defn score-strike [rolls]
-  (let [next-frame (nth rolls 2 nil)]
-    (if (nil? next-frame)
+  (let [next-frame-empty (nil? (nth rolls 2 nil))]
+    (if next-frame-empty
       0
-      (+ 10 (nth rolls 1 ) (nth rolls 2 0)))))
+      (+ 10 (nth rolls 1 ) (nth rolls 2)))))
 
 (defn score-frame [rolls]
   (if (is-strike rolls)
