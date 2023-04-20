@@ -18,7 +18,10 @@
   (+ 10 (nth rolls 2)))
 
 (defn score-strike [rolls]
-  (+ 10 (nth rolls 1 ) (nth rolls 2)))
+  (let [next-frame (nth rolls 2 nil)]
+    (if (nil? next-frame)
+      0
+      (+ 10 (nth rolls 1 ) (nth rolls 2 0)))))
 
 (defn score-frame [rolls]
   (if (is-strike rolls)
@@ -30,6 +33,7 @@
 (defn score-game [rolls]
   (loop [rolls rolls
          score 0]
+    (print score " - " rolls "\n")
     (if (nil? (next rolls))
       score
       (recur (get-next-frame rolls) (+ score (score-frame rolls))))))

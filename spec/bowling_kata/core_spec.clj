@@ -3,7 +3,7 @@
             [bowling-kata.core :refer :all]))
 
 (def new-game
-  [])
+  '[])
 
 (defn roll-many [n pins]
   (nth (iterate #(roll % pins) new-game) n))
@@ -36,4 +36,7 @@
                                 (roll 10)
                                 (roll 3)
                                 (roll 2)
-                                (concat (roll-many 17 0)))))))
+                                (concat (roll-many 17 0))))))
+
+  (it "should score perfect game as 300"
+    (should= 300 (score-game (roll-many 12 10)))))
